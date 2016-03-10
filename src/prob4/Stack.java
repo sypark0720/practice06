@@ -5,4 +5,7 @@ public interface Stack {
 	public String pop() throws RuntimeException;
 	public boolean isEmpty();
 	public int size();
+
+
+
 }
