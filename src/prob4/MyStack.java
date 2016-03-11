@@ -1,8 +1,8 @@
 package prob4;
 
-public class MyStack implements Stack {
+public class MyStack<E> implements Stack {
 	//field
-	private String[] buffer;
+	private E[] buffer;
 	private int capacity;
 	private int top;
 	
@@ -13,15 +13,15 @@ public class MyStack implements Stack {
 			throw new MyStackException ("Buffer size should be bigger than zero");	
 		}
 		this.capacity = capacity;
-		this.buffer = new String[capacity];
+		this.buffer = new E[capacity];
 		this.top = 0;
 	}	
 	
 	@Override
-	public void push(String str) throws RuntimeException {
+	public void push(E str) throws RuntimeException {
 		if(top == capacity){
-			String[] temp = buffer;
-			buffer = new String[capacity *2];
+			E[] temp = buffer;
+			buffer = new E[capacity *2];
 			System.arraycopy(temp, 0, buffer, 0, capacity);			
 		}
 		buffer[top] = str;
@@ -30,8 +30,8 @@ public class MyStack implements Stack {
 
 
 	@Override
-	public String pop() throws RuntimeException {
-		String a = buffer[top];
+	public E pop() throws RuntimeException {
+		E a = buffer[top];
 		top -= 1;
 		return a;
 	}
@@ -45,6 +45,15 @@ public class MyStack implements Stack {
 	@Override
 	public int size() {
 		return top;
+	}
+
+	@Override
+	public void push(String str) throws RuntimeException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	}
 
 }
